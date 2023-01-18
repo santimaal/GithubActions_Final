@@ -4,10 +4,17 @@ on:
    branches:
     - master
 jobs:
-  linter-execution:
+  Linter_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Linter_job
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - run: npm install -D
       - run: npm run lint
+  
+  Cypress_job:
+    needs: Linter_job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install -D
+      - run: npm run cypress
