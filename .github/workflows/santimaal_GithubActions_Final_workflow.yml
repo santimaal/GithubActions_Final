@@ -24,7 +24,7 @@ jobs:
         id: cypress
         continue-on-error: true
         run: echo ${{ steps.cypress.outcome }}  > result.txt
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
           name: result.txt
           path: result.txt
