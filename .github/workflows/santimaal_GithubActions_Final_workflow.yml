@@ -1,0 +1,13 @@
+name: GithubActions_Final
+on: 
+  push:
+   branches:
+    - master
+jobs:
+  linter-execution:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Linter_job
+        uses: actions/checkout@v2
+      - run: npm install -D
+      - run: npm run lint
