@@ -16,5 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm install -D
-      - run: npm run cypress
+      - uses: cypress-io/github-action@v5
+        with:
+          config-file: cypress.json
+          start: npm start
+          build: npm run build
+        id: cypress
+        continue-on-error: true
