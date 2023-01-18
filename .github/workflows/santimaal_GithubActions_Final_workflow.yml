@@ -22,4 +22,4 @@ jobs:
           start: npm start
           build: npm run build
         id: cypress
-        continue-on-error: true
+        # continue-on-error: true
