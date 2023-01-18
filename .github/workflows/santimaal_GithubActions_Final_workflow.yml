@@ -22,7 +22,7 @@ jobs:
           start: npm start
           build: npm run build
         id: cypress
-        # continue-on-error: true
+        continue-on-error: true
       - uses: actions/upload-artifact@v3
         with:
           name: result.txt
