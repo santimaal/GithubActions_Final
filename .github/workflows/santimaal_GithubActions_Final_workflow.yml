@@ -40,7 +40,7 @@ jobs:
       - run: echo "::set-output name=cypress_outcome::$(cat result.txt)"
       - uses: ./.github/actions/changereadme
         env:
-          resultado: ${{cypress_outcome}}
+          resultado: ${{steps.cypress.outputs.cypress_outcome}}
       - uses: EndBug/add-and-commit@v9
         with:
           add: "."
