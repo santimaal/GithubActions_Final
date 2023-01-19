@@ -8,7 +8,6 @@ URL = "![Cypress.io](" + URL + ")"
 
 fs.readFile(readme, 'utf8', function(err, data) {
     if (err) throw err;
-    console.log(data);
     data += URL;
     fs.writeFile(readme, data, function (err) {
         if (err) throw err;
