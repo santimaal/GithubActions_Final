@@ -19,8 +19,8 @@ jobs:
       - uses: cypress-io/github-action@v5
         with:
           config-file: cypress.json
-          start: npm start
           build: npm run build
+          start: npm start
         id: cypress
         continue-on-error: true
       - run: echo ${{ steps.cypress.outcome }}  > result.txt
