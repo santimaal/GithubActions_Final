@@ -26,5 +26,25 @@ jobs:
       - run: echo ${{ steps.cypress.outcome }}  > result.txt
       - uses: actions/upload-artifact@v2
         with:
-          name: result.txt
-          path: result.txt
+          name: result
+          path: ./result.txt
+
+  Add_badge_job:
+    needs: Linter_job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: result
+      - run: echo "::set-output name=cypress_outcome::$(cat result.txt)"
+      - uses: ./.github/actions/changereadme
+        env:
+          resultado: ${{cypress_outcome}}
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: "."
+          author_name: "Santi Martinez Albert"
+          author_email: "santimartinezalbert02@gmail.com"
+          message: "Readme Updated succesfully"
+          push: true

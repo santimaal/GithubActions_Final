@@ -1,0 +1,9 @@
+name: "Change Readme"
+description: ""
+inputs:
+  resultado:
+    description: "frase"
+    required: true
+runs: 
+  using: node16
+  main: dist/index.js
