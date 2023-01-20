@@ -1,0 +1,27 @@
+name: "Change Readme"
+description: ""
+inputs:
+  API_KEY:
+    description: "apimailgun"
+    required: true
+  DOMAIN:
+    description: "domainmailgun"
+    required: true
+  destinatario:
+    description: "destinatario"
+    required: true
+  linter_job:
+    description: "resultado linter_job"
+    required: true
+  cypress_job:
+    description: "resultado cypress_job"
+    required: true
+  add_badge_job:
+    description: "resultado add_badge_job"
+    required: true
+  deploy_job:
+    description: "resultado deploy_job"
+    required: true
+runs:
+  using: node16
+  main: dist/index.js
